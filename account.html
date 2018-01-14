@@ -38,7 +38,7 @@
 							<p>Login To Continue</p>
 						</header>
 						<div class="content">
-						<form action="#" method="post">
+						<form action="#" method="post" id="login">
 						<div class="field">
 							<label for="email">Username</label>
 							<input name="email" id="email" type="email" placeholder="Email">
@@ -68,7 +68,7 @@
 							<p>Create New Account</p>
 						</header>
 						<div class="content">
-						<form action="#" method="post">
+						<form action="#" method="post" id="register">
 						<div class="field">
 							<label for="email">Username</label>
 							<input name="email" id="email" type="email" placeholder="Email">
@@ -97,6 +97,23 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+			<script>
+				//sign in form
+				var appSet={
+					arr:[
+						email:"email",
+						password:"user_passcode",
+						name:"first_name",
+						surname:"surname",
+						submit:"add_user",
+						gender:"gender",
+						cell:"phone"
+					]
+				}
+				$("#register").submit(function(e){
+					e.preventDefault();
+					$.forEach();
+				});
+			</script>
 	</body>
 </html>
