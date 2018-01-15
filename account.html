@@ -18,7 +18,6 @@
 			</header>
 
 		<!-- Nav -->
-		<nav id="menu">
 			<ul class="links">
 				<li><a href="index.html">Home</a></li>
 				<li><a href="#0">Notifications</a></li>
@@ -157,6 +156,8 @@
 								var j_resp = JSON.parse(resp);
 								console.log(j_resp);
 								appSet.post = {};//reset posted variables
+							}catch(exc){
+								console.log(exc);
 							}
 						});
 					},
