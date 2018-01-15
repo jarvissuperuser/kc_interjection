@@ -71,12 +71,17 @@
 					<div class="content">
 						<form action="#" method="post" id="register">
 							<div class="field">
-								<label for="nme">Name</label>
-								<input name="nme" type="text" placeholder="First Name">
+								<label for="firstname">Name</label>
+								<input name="firstname" type="text" placeholder="First Name">
 							</div>
 							<div class="field">
 								<label for="lastname">Last Name</label>
 								<input name="lastname" type="text" placeholder="Last Name">
+							</div>
+						
+							<div class="field">
+								<label for="cell">Phone</label>
+								<input name="cell"  type="text" placeholder="Cell Phone">
 							</div>
 							<div class="field">
 								<label for="email">Email</label>
@@ -116,8 +121,8 @@
 					arr:{
 						email:"email",
 						password:"user_passcode",
-						nme:"name",
-						snme:"surname",
+						firstname:"name",
+						lastname:"surname",
 						cell:"phone"
 					},
 					post:{submit:"add_user",gender:"d"}
