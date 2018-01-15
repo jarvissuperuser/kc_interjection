@@ -124,9 +124,13 @@
 				$("#register").submit(function(e){
 					e.preventDefault();
 					var inputs =  $("form#register").serializeArray();
-					$.each(inputs,function(data,key){
-						appSet.post[appSet.arr[inputs[data].name]] = inputs[data].value;
-					});
+					if (inputs["cpassword"].value == inputs["password"].value){
+						$.each(inputs,function(data,key){
+							appSet.post[appSet.arr[inputs[data].name]] = inputs[data].value;
+						});
+					}else{
+						
+					}
 					console.log(appSet.post);
 				});
 			</script>
