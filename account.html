@@ -39,9 +39,10 @@
 						</header>
 						<div class="content">
 						<form action="#" method="post" id="login">
+						
 						<div class="field">
-							<label for="email">Username</label>
-							<input name="email" id="email" type="email" placeholder="Email">
+							<label for="email">Email</label>
+							<input name="email" type="email" placeholder="Email">
 						</div>
 						<div class="field">
 							<label for="password">Password</label>
@@ -68,20 +69,31 @@
 							<p>Create New Account</p>
 						</header>
 						<div class="content">
-						<form action="#" method="post" id="register">
-						<div class="field">
-							<label for="email">Username</label>
-							<input name="email" id="email" type="email" placeholder="Email">
-						</div>
-						<div class="field">
-							<label for="password">Password</label>
-							<input name="password" id="password" type="password" placeholder="Your Password">
-						</div>
-						<ul class="actions">
-							<li><input value="Continue" class="button alt" type="submit"></li>
-						</ul>
-					</form>
-
+							<form action="#" method="post" id="register">
+								<div class="field">
+									<label for="email">Name</label>
+									<input name="nme" type="text" placeholder="First Name">
+								</div>
+								<div class="field">
+									<label for="email">Last Name</label>
+									<input name="snme" type="text" placeholder="Last Name">
+								</div>
+								<div class="field">
+									<label for="email">Email</label>
+									<input name="email"  type="email" placeholder="Email">
+								</div>
+								<div class="field">
+									<label for="email">Email</label>
+									<input name="email"  type="email" placeholder="Email">
+								</div>
+								<div class="field">
+									<label for="password">Password</label>
+									<input name="password" id="password" type="password" placeholder="Your Password">
+								</div>
+								<ul class="actions">
+									<li><input value="Continue" class="button alt" type="submit"></li>
+								</ul>
+							</form>
 						</div>
 						<footer>
 							<a href="#0" class="button alt">Cancel</a>
@@ -100,19 +112,22 @@
 			<script>
 				//sign in form
 				var appSet={
-					arr:[
+					arr:{
 						email:"email",
 						password:"user_passcode",
-						name:"first_name",
-						surname:"surname",
-						submit:"add_user",
-						gender:"gender",
+						nme:"name",
+						snme:"surname",
 						cell:"phone"
-					]
+					},
+					post:{submit:"add_user",gender:"d"}
 				}
 				$("#register").submit(function(e){
 					e.preventDefault();
-					$.forEach();
+					var inputs =  $("form#register").serializeArray();
+					$.each(inputs,function(data,key){
+						appSet.post[appSet.arr[inputs[data].name]] = inputs[data].value;
+					});
+					console.log(appSet.post);
 				});
 			</script>
 	</body>
