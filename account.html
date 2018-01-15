@@ -128,7 +128,7 @@
 					if (inputs["cpassword"].value === inputs["password"].value){
 						appSend.formInput(inputs);
 					}else{
-						
+
 					}
 					console.log(appSet.post);
 				});
@@ -151,7 +151,7 @@
 							try{
 								var j_resp = JSON.parse(resp);
 								console.log(j_resp);
-								appSet.post = {};
+								appSet.post = {};//reset posted variables
 							}
 						});
 					}
