@@ -112,6 +112,7 @@
 			<script>
 				//sign up form for doctors
 				var appSet={
+					url:"https://localhost/mvc/api",
 					arr:{
 						email:"email",
 						password:"user_passcode",
@@ -124,15 +125,37 @@
 				$("#register").submit(function(e){
 					e.preventDefault();
 					var inputs =  $("form#register").serializeArray();
-					if (inputs["cpassword"].value == inputs["password"].value){
-						$.each(inputs,function(data,key){
-							appSet.post[appSet.arr[inputs[data].name]] = inputs[data].value;
-						});
+					if (inputs["cpassword"].value === inputs["password"].value){
+						appSend.formInput(inputs);
 					}else{
 						
 					}
 					console.log(appSet.post);
 				});
+				$("#login").submit(function(e){
+					e.preventDefault();
+					var inputs =  $("form#login").serializeArray();
+					if (inputs["password"].value !== ""){
+						appSend.formInput(inputs);
+					}else{
+						
+					}
+					console.log(appSet.post);
+				});
+				var appSend = {
+					formInput:function(inputs){
+						$.each(inputs,function(data,key){
+							appSet.post[appSet.arr[inputs[data].name]] = inputs[data].value;
+						});
+						$.post(appSet.url,appSet.post,function(resp){
+							try{
+								var j_resp = JSON.parse(resp);
+								console.log(j_resp);
+								appSet.post = {};
+							}
+						});
+					}
+				}
 			</script>
 	</body>
 </html>
